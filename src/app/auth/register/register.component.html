@@ -1,0 +1,16 @@
+<!-- register.component.html -->
+<div>
+    <h2>Registro</h2>
+    <form (ngSubmit)="onSubmit()">
+      <label>Email:</label>
+      <input [(ngModel)]="newUser.email" name="email" required />
+  
+      <label>Password:</label>
+      <input [(ngModel)]="newUser.password" name="password" type="password" required />
+  
+      <button type="submit">Registrarse</button>
+    </form>
+  
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+  </div>
+  

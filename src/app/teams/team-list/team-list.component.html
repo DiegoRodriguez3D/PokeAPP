@@ -1,0 +1,14 @@
+<!-- team-list.component.html -->
+<div>
+    <h2>Mis Equipos</h2>
+    <button routerLink="/teams/new">Crear Equipo</button>
+  
+    <ul>
+      <li *ngFor="let team of teams">
+        <strong>{{ team.teamName }}</strong>
+        (ID: {{ team.id }}) - Pokemons: {{ team.teamPokemons.length }}
+        <button (click)="deleteTeam(team.id)">Borrar</button>
+      </li>
+    </ul>
+  </div>
+  

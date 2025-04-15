@@ -1,0 +1,16 @@
+<!-- login.component.html -->
+<div>
+    <h2>Login</h2>
+    <form (ngSubmit)="onSubmit()">
+      <label>Email:</label>
+      <input [(ngModel)]="credentials.email" name="email" required />
+  
+      <label>Password:</label>
+      <input [(ngModel)]="credentials.password" name="password" type="password" required />
+  
+      <button type="submit">Iniciar Sesión</button>
+    </form>
+  
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+  </div>
+  
