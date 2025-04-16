@@ -1,0 +1,33 @@
+.pokemon-detail-card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin: 2rem auto;
+    max-width: 800px;
+  }
+  
+  .pokemon-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .pokemon-detail-img {
+    height: 120px;
+    width: 120px;
+  }
+  
+  .stats-section {
+    margin-top: 1rem;
+  }
+  
+  .description {
+    margin-top: 1rem;
+    font-style: italic;
+  }
+  
+  .evolution-section {
+    margin-top: 2rem;
+  }

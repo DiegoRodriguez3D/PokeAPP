@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    color: #212121;
+  }
+  
+  a {
+    color: #1976d2;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  mat-toolbar {
+    background-color: #ef5350; /* Pokéball red */
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .app-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }

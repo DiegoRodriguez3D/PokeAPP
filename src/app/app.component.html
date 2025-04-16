@@ -1,12 +1,11 @@
-<!-- app.component.html -->
-<nav>
-  <a routerLink="/pokedex">Pokedex</a>
-  <a routerLink="/teams">Mis Equipos</a>
-  <a routerLink="/login">Login</a>
-  <a routerLink="/register">Register</a>
-</nav>
+<mat-toolbar color="primary">
+  <span class="app-title">{{ title }}</span>
+  <span class="spacer"></span>
+  <button mat-button [routerLink]="'/pokedex'">Pokedex</button>
+  <button mat-button [routerLink]="'/teams'">Equipos</button>
+  <button mat-button [routerLink]="'/login'">Login</button>
+  <button mat-button [routerLink]="'/register'">Registro</button>
+</mat-toolbar>
 
-<h1>{{ title }}</h1>
-
-<!-- Aquí se montarán las rutas definidas en app.routes -->
+<!-- Contenido de las rutas -->
 <router-outlet></router-outlet>

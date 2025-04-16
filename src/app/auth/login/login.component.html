@@ -1,16 +1,21 @@
-<!-- login.component.html -->
-<div>
-    <h2>Login</h2>
+<mat-card class="login-card">
+  <mat-card-title>Iniciar Sesión</mat-card-title>
+  <mat-card-content>
     <form (ngSubmit)="onSubmit()">
-      <label>Email:</label>
-      <input [(ngModel)]="credentials.email" name="email" required />
-  
-      <label>Password:</label>
-      <input [(ngModel)]="credentials.password" name="password" type="password" required />
-  
-      <button type="submit">Iniciar Sesión</button>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="credentials.email" name="email" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [(ngModel)]="credentials.password" name="password" type="password" required />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Entrar</button>
     </form>
-  
-    <p *ngIf="errorMessage">{{ errorMessage }}</p>
-  </div>
-  
+  </mat-card-content>
+  <mat-card-actions>
+    <p *ngIf="errorMessage" class="error-text">{{ errorMessage }}</p>
+  </mat-card-actions>
+</mat-card>

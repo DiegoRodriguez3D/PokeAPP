@@ -1,14 +1,29 @@
 <!-- team-list.component.html -->
-<div>
-    <h2>Mis Equipos</h2>
-    <button routerLink="/teams/new">Crear Equipo</button>
-  
-    <ul>
-      <li *ngFor="let team of teams">
-        <strong>{{ team.teamName }}</strong>
-        (ID: {{ team.id }}) - Pokemons: {{ team.teamPokemons.length }}
-        <button (click)="deleteTeam(team.id)">Borrar</button>
-      </li>
-    </ul>
+<mat-card class="teams-list-card">
+  <mat-card-title>Mis Equipos</mat-card-title>
+  <button mat-raised-button color="primary" routerLink="/teams/new">Crear Equipo</button>
+</mat-card>
+
+<div cdkDropList (cdkDropListDropped)="drop($event)" class="teams-list">
+  <div
+    class="team-item"
+    *ngFor="let team of teams; let i = index"
+    cdkDrag
+  >
+    <mat-card>
+      <mat-card-title>{{ team.teamName }}</mat-card-title>
+      <mat-card-content>
+        <p>Pokémon: {{ team.teamPokemons.length }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <!-- Podrías tener un Edit button -->
+        <button mat-button color="accent" [routerLink]="['/teams', team.id, 'edit']">
+          Editar
+        </button>
+        <button mat-button color="warn" (click)="confirmDelete(team.id)">
+          Borrar
+        </button>
+      </mat-card-actions>
+    </mat-card>
   </div>
-  
+</div>

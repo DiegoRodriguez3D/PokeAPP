@@ -1,16 +1,22 @@
-<!-- register.component.html -->
-<div>
-    <h2>Registro</h2>
+<mat-card class="register-card">
+  <mat-card-title>Registro</mat-card-title>
+  <mat-card-content>
     <form (ngSubmit)="onSubmit()">
-      <label>Email:</label>
-      <input [(ngModel)]="newUser.email" name="email" required />
-  
-      <label>Password:</label>
-      <input [(ngModel)]="newUser.password" name="password" type="password" required />
-  
-      <button type="submit">Registrarse</button>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="newUser.email" name="email" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [(ngModel)]="newUser.password" name="password" type="password" required />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Registrarse</button>
     </form>
-  
-    <p *ngIf="errorMessage">{{ errorMessage }}</p>
-  </div>
-  
+  </mat-card-content>
+
+  <mat-card-actions>
+    <p *ngIf="errorMessage" class="error-text">{{ errorMessage }}</p>
+  </mat-card-actions>
+</mat-card>

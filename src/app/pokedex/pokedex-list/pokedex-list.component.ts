@@ -1,16 +1,25 @@
-// pokedex-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PokemonService } from '../../core/services/pokemon.service'; 
 import { Pokemon } from '../../core/models/pokemon.model';
-import { Router, RouterLink } from '@angular/router';
+import { Router} from '@angular/router';
+import { PokemonCardComponent } from '../../components/pokemon-card/pokemon-card.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatChipsModule } from '@angular/material/chips'; 
+import { MatDialogModule } from '@angular/material/dialog';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-pokedex-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
-  templateUrl: './pokedex-list.component.html'
+  imports: [CommonModule, FormsModule, PokemonCardComponent,MatCardModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatChipsModule, MatDialogModule, DragDropModule],
+  templateUrl: './pokedex-list.component.html',
+  styleUrls: ['./pokedex-list.component.css']
 })
 export class PokedexListComponent implements OnInit {
   allPokemon: Pokemon[] = [];
@@ -45,7 +54,6 @@ export class PokedexListComponent implements OnInit {
 
       let matchesType = true;
       if (this.typeFilter) {
-        // Comparar type1 o type2 (en minúsculas)
         const t1 = p.type1?.toLowerCase();
         const t2 = p.type2?.toLowerCase();
         matchesType =

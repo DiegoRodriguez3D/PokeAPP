@@ -1,15 +1,22 @@
-// pokemon-detail.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
 import { PokemonService } from '../../core/services/pokemon.service'; 
 import { Pokemon } from '../../core/models/pokemon.model';
-
+import { PokemonCardComponent } from '../../components/pokemon-card/pokemon-card.component';
+import { StatsBarComponent } from '../../components/stats-bar/stats-bar.component'; 
 
 @Component({
   selector: 'app-pokemon-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    PokemonCardComponent,
+    StatsBarComponent
+  ],
+  styleUrls: ['./pokemon-detail.component.css'],
   templateUrl: './pokemon-detail.component.html'
 })
 export class PokemonDetailComponent implements OnInit {
@@ -18,6 +25,7 @@ export class PokemonDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private pokemonService: PokemonService
   ) {}
 
@@ -31,4 +39,10 @@ export class PokemonDetailComponent implements OnInit {
       this.pokemonData = p;
     });
   }
+
+  goToPokemonDetail(id: number) {
+    this.router.navigate(['/pokemon', id]);
+  }
+
+  evolvesToData!: Pokemon;
 }

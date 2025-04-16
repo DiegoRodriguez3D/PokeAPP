@@ -1,31 +1,31 @@
-<!-- pokemon-detail.component.html -->
 <div *ngIf="pokemonData">
-    <h2>{{ pokemonData.name }}</h2>
-    <img [src]="pokemonData.imageUrl" alt="{{ pokemonData.name }}" />
-    <p>HP: {{ pokemonData.hp }}</p>
-    <p>Attack: {{ pokemonData.attack }}</p>
-    <p>Defense: {{ pokemonData.defense }}</p>
-    <p>Sp. Attack: {{ pokemonData.specialAttack }}</p>
-    <p>Sp. Defense: {{ pokemonData.specialDefense }}</p>
-    <p>Speed: {{ pokemonData.speed }}</p>
-  
-    <p>{{ pokemonData.description }}</p>
-  
-    <!-- Evolución (Opcional, según tu API) -->
-    <div>
-      <h3>Evoluciona desde:</h3>
-      <div *ngIf="pokemonData.evolvesFromId">
-        <a [routerLink]="['/pokemon', pokemonData.evolvesFromId]">
-          Ir a la pre-evolución
-        </a>
+    <mat-card class="pokemon-detail-card">
+      <div class="pokemon-detail-header">
+        <img [src]="pokemonData.imageUrl" alt="{{ pokemonData.name }}" class="pokemon-detail-img" />
+        <div>
+          <h2>#{{ pokemonData.id }} - {{ pokemonData.name }}</h2>
+        </div>
       </div>
-  
-      <h3>Evoluciona a:</h3>
-      <div *ngIf="pokemonData.evolvesToId">
-        <a [routerLink]="['/pokemon', pokemonData.evolvesToId]">
-          Ir a la evolución
-        </a>
+    
+      <div class="stats-section">
+        <app-stats-bar label="HP" [value]="pokemonData.hp"></app-stats-bar>
+        <app-stats-bar label="Attack" [value]="pokemonData.attack"></app-stats-bar>
+        <app-stats-bar label="Defense" [value]="pokemonData.defense"></app-stats-bar>
+        <app-stats-bar label="Sp. Atk" [value]="pokemonData.specialAttack"></app-stats-bar>
+        <app-stats-bar label="Sp. Def" [value]="pokemonData.specialDefense"></app-stats-bar>
+        <app-stats-bar label="Speed" [value]="pokemonData.speed"></app-stats-bar>
       </div>
+    
+      <p class="description">{{ pokemonData.description }}</p>
+    </mat-card>
+    
+    <div *ngIf="pokemonData.evolvesToId" class="evolution-section">
+      <h3>Evoluciones</h3>
+      <app-pokemon-card
+        *ngIf="pokemonData.evolvesToId"
+        [pokemon]="evolvesToData"
+        (cardClick)="goToPokemonDetail($event)"
+      ></app-pokemon-card>
     </div>
   </div>
   
