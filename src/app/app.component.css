@@ -1,0 +1,5 @@
+    mat-toolbar {
+    background-color: #ef5350; /* Pokéball red */
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }

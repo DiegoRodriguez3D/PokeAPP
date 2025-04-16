@@ -14,12 +14,6 @@ body {
     text-decoration: underline;
   }
   
-  mat-toolbar {
-    background-color: #ef5350; /* Pokéball red */
-    color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
   .app-title {
     font-weight: bold;
     font-size: 1.25rem;
